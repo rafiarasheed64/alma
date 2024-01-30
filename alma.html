@@ -1,0 +1,1987 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <title>ALMA</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .first {
+            height: 110vh;
+            width: 100%;
+            background-image: url(./ALMA-image/new-alma2-1024x768.jpg);
+            background-position: center;
+            background-size: cover;
+            overflow: hidden;
+            
+        }
+        
+        .after {
+            position: relative;
+            background-color: rgba(0, 0, 0, 0.603);
+            height: 100%;
+            width: 100%;
+        }
+
+        .navbar {
+            height: 80px;
+            width: 100%;
+            padding: 0 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-div {
+            height: max-content;
+            width: 10%;
+            cursor: pointer;
+        }
+
+        .image1 {
+            height: 100%;
+            width: 100%;
+        }
+
+        .list {
+            height: max-content;
+            width: 40%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            list-style: none;
+            color: white;
+            margin-left: 20%;
+        }
+
+        .line {
+            height: 1px;
+            width: 100%;
+            background-color: rgb(245, 153, 168);
+        }
+        .line1{
+            height: 1px;
+            width: 0%;
+            background-color: rgb(245, 153, 168); 
+            transition: all 0.3s linear;
+        }
+        .lst{
+            transition: all 0.3s linear;
+            position: relative;
+            cursor: pointer;
+        }
+        .clr{
+            color: rgb(245, 153, 168) ;
+        }
+        .lst:hover .line1{
+            width: 100%;
+        }
+        
+        .lst:hover {
+            color: rgb(245, 153, 168);
+        }
+        .dropdown1{
+            height: 90vh;
+            width: 190px;
+            background-color: #202020;
+            position: absolute;
+            left: 40%;
+            top: 8.5%;
+            z-index: 11;
+            display: none;
+            transition: all 0.4s linear;
+        }
+        .dropdown1:hover{
+            display: block;
+        }
+        .lst:hover + .dropdown1{
+            display: block;
+        }
+        .list1{
+            list-style: none;   
+        }
+        .lst1{
+            color: rgba(255, 255, 255, 0.541);
+            padding: 14px;
+            border-bottom: 1px solid grey;
+            cursor: pointer;
+        }
+        .lst1:hover{
+            color: white;
+            background-color: black;
+        }
+        .dropdown2{
+            height: 69vh;
+            width: 220px;
+            background-color: #202020;
+            position: absolute;
+            left: 45%;
+            top: 8.5%;
+            z-index: 11;
+            display: none;
+            transition: all 0.4s linear;
+        }
+        .dropdown2:hover{
+            display: block;
+        }
+        .lst:hover + .dropdown2{
+            display: block;
+        }
+        .dropdown3{
+            height: 46vh;
+            width: 90%;
+            background-color: #202020;
+            display: flex;
+            position: absolute;
+            left: 5%;
+            top: 8.5%;
+            z-index: 11;
+            display: none;
+            transition: all 0.4s linear;
+        }
+        .dropdown3:hover{
+            display: block;
+            display: flex;
+        }
+        .lst:hover + .dropdown3{
+            display: block;
+            display: flex;
+        }
+        .dropdown4{
+            height: 61vh;
+            width: 90%;
+            background-color: #202020;
+            display: flex;
+            position: absolute;
+            left: 5%;
+            top: 8.5%;
+            z-index: 11;
+            display: none;
+            transition: all 0.4s linear;
+        }
+        .dropdown4:hover{
+            display: block;
+            display: flex;
+        }
+        .lst:hover + .dropdown4{
+            display: block;
+            display: flex;
+        }
+        .dropdown5{
+            height: 61vh;
+            width: 220px;
+            background-color: #202020;
+            position: absolute;
+            left: 69%;
+            top: 8.5%;
+            z-index: 11;
+            display: none;
+            transition: all 0.4s linear;
+        }
+        .dropdown5:hover{
+            display: block;
+        }
+        .lst:hover + .dropdown5{
+            display: block;
+        }
+        .bx{
+            height: 100%;
+            width: 25%;
+            border: 1px solid grey;   
+        }
+
+        .icon-div {
+            height: max-content;
+            width: 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .icn01 , .icn02 , .icn03 {
+            font-size: 20px;
+            color: white;
+            cursor: pointer;
+        }
+        .dropdown6{
+            height: max-content;
+            width: max-content;
+            position: absolute;
+            right: 7%;
+            top: 8.5%;
+            display: none;
+            background-color: #202020;
+        }
+        .search-bar{
+            height: max-content;
+            width: 100%;
+            background-color: rgb(36, 35, 35);
+            position: absolute;
+            left: 0;
+            top: -60%;
+            z-index: 111;
+            padding: 70px;
+            transition: all 0.4s linear;
+        }
+        .icn001{
+            color: white;
+            font-size: 30px;
+            margin-left: 100%;
+        }
+        .inp{
+            width: 100%;
+            color: white;
+            font-size: 50px;
+            background-color: rgb(36, 35, 35);
+            border: none;
+            border-bottom: 1px solid;
+            margin-top: 10%;
+        }
+        .down{
+          top: 0;  
+        }
+        .side-bar{
+            height: 100vh;
+            width: 30%;
+            background-color: #202020;
+            position: absolute;
+            right: -30%;
+            top: 0;
+            padding: 40px;
+           
+            transition: all 0.4s linear;
+        }
+        .left{
+            right: 0;
+        }
+        .icn1{
+            font-size: 25px;
+            color: white;
+            margin-left: 95%;
+        }
+        .image3{
+            height: 40%;
+            width: 100%;
+            margin-top: 10%;
+        }
+        .txt{
+            color: rgba(255, 255, 255, 0.603);
+            margin-top: 30px;
+        }
+        .txt1{
+            color: white;
+            font-size: 22px;
+            text-align: center;
+            margin-top: 30px;
+        }
+        .icon-div1{
+            height: max-content;
+            width: 80%;
+            margin: auto;
+            margin-top: 30px;
+        }
+        .icn2{
+            color: white;
+            font-size: 24px;
+            margin-left: 13px;
+        }
+        .icn:hover + .dropdown6{
+            display: block;
+        }
+        .lst2{
+            color: rgba(255, 255, 255, 0.541);
+            padding: 14px;
+            cursor: pointer;
+        }
+        .heading1 {
+            font-size: 30px;
+            text-align: center;
+            margin-top: 8%;
+            color: white;
+            letter-spacing: 3px;
+        }
+
+        .text-div {
+            height: 70px;
+            width: 50%;
+            margin: auto;
+            margin-top: 20px;
+            overflow: hidden;
+        }
+        .headings, .headings01{
+            font-size: 60px;
+            color: pink;
+            display: inline-block;
+            letter-spacing: 6px;
+        }
+        .up1{
+            transform: translateY(-60px);
+            animation: move 6s linear infinite;
+        }
+        @keyframes move {
+            0%{
+                transform: translateY(-60px);
+            }
+            5%{
+                transform: translateY(-60px);
+            }
+            16%{
+                transform: translateY(0px);
+            }
+            25%{
+                transform: translateY(0px);
+            }
+            33%{
+                transform: translateY(-60px);
+            }
+            100%{
+                transform: translateY(-60px);
+            }
+            
+        }
+        .dwn1{
+            transform: translateY(60px);
+            animation: move1 6s linear infinite ;
+
+        }
+        @keyframes move1 {
+            0%{
+                transform: translateY(60px);
+            }
+            5%{
+                transform: translateY(60px);
+            }
+            16%{
+                transform: translateY(0px);
+            }
+            25%{
+                transform: translateY(0px);
+            }
+            33%{
+                transform: translateY(60px);
+            }
+            100%{
+                transform: translateY(60px);
+            } 
+        }
+        .up2{
+            transform: translateY(-60px);
+            animation: move2 6s linear infinite;
+        }
+        @keyframes move2 {
+            0%{
+                transform: translateY(-125px);
+            }
+            38%{
+                transform: translateY(-125px);
+            }
+            49%{
+                transform: translateY(-60px);
+            }
+            58%{
+                transform: translateY(-60px);
+            }
+            66%{
+                transform: translateY(-125px);
+            }
+            100%{
+                transform: translateY(-125px);
+            }
+            
+        }
+        .dwn2{
+            transform: translateY(60px);
+            animation: move3 6s linear infinite ;
+
+        }
+        @keyframes move3 {
+            0%{
+                transform: translateY(0px);
+            }
+            38%{
+                transform: translateY(0px);
+            }
+            49%{
+                transform: translateY(-60px);
+            }
+            58%{
+                transform: translateY(-60px);
+            }
+            66%{
+                transform: translateY(0px);
+            }
+            100%{
+                transform: translateY(0px);
+            } 
+        }
+
+        .up3{
+            transform: translateY(-60px);
+            animation: move4 6s linear infinite;
+        }
+        @keyframes move4 {
+            0%{
+                transform: translateY(-200px);
+            }
+            71%{
+                transform: translateY(-200px);
+            }
+            82%{
+                transform: translateY(-125px);
+            }
+            91%{
+                transform: translateY(-125px);
+            }
+            66%{
+                transform: translateY(-200px);
+            }
+            100%{
+                transform: translateY(-200px);
+            }
+            
+        }
+        .dwn3{
+            transform: translateY(60px);
+            animation: move5 6s linear infinite ;
+
+        }
+        @keyframes move5 {
+            0%{
+                transform: translateY(0px);
+            }
+            71%{
+                transform: translateY(0px);
+            }
+            82%{
+                transform: translateY(-125px);
+            }
+            91%{
+                transform: translateY(-125px);
+            }
+            100%{
+                transform: translateY(0px);
+            } 
+        }
+
+
+
+
+        .text1 {
+            color: white;
+            margin-left: 45%;
+            margin-top: 30px;
+        }
+
+        .arrow-div {
+            height: max-content;
+            width: 50px;
+            margin: auto;
+            margin-top: 50px;
+        }
+        .icn8{
+            font-size: 60px;
+            color: rgb(197,197,197);
+        }
+
+        .btn-div {
+            height: max-content;
+            width: 35%;
+            margin: auto;
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .button1,
+        .button2 {
+            height: 40px;
+            width: 45%;
+            background-color: rgba(0, 0, 0, 0.014);
+            border: 1px solid white;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .button1:hover {
+            background-color: white;
+            color: pink;
+        }
+
+        .button2:hover {
+            background-color: pink;
+            color: white;
+        }
+
+        .second {
+            height: max-content;
+            width: 100%;
+            padding: 90px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .box {
+            height: max-content;
+            width: 30%;
+        }
+
+        .heading2 {
+            color: rgb(252, 148, 165);
+            font-size: 38px;
+            text-align: center;
+        }
+
+        .heading3 {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 30px;
+        }
+
+        .text2 {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 15px;
+            line-height: 25px;
+        }
+        .third{
+            height: 60vh;
+            width: 100%;
+            padding: 50px;
+            background-color: rgb(249,235,232);
+        }
+        .heading4{
+            color: rgb(250, 150, 167);
+            text-align: center;
+            margin-top: 40px;
+            letter-spacing: 5px;
+        }
+        .text-div1{
+            height: 70px;
+            padding: 5px 2px ;
+            width: max-content;
+            margin: auto;
+            overflow: hidden;
+            margin-top: 30px;
+        }
+        .heading5{
+            letter-spacing: 15px;
+            font-size: 50px;
+            line-height: 60px;
+            text-align: center;
+        }
+        .upmove1{
+            animation: upmove1 6s linear infinite;
+
+        }
+        @keyframes upmove1 {
+            0%{
+                margin-top: 0;
+            }
+            30%{
+                margin-top: 0px;
+            }
+            33%{
+                margin-top: -60px;
+            }
+            63%{
+                margin-top: -60px;
+            }
+            66%{
+                margin-top: -120px;
+            }
+            95%{
+                margin-top: -120px;
+            }
+            100%{
+                margin-top: -120px;
+            }
+        }
+        .fourth{
+            height: 80vh;
+            width: 100%;
+            padding: 0px 60px;
+
+        }
+        .box1{
+            height: 120%;
+            width: 100%;
+            margin-top: -8%;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .sub-box{
+            height: 50%;
+            width: 33.33%;
+            position: relative;
+            overflow: hidden;
+        }
+        .image01{
+            height: 100%;
+            width: 100%;
+            transition: all 0.25s linear;
+        }
+        .sub-box:hover .image01{
+            margin-top: -15px;
+        }
+
+        .black-div{
+            width: 100%;
+            height: 50px;
+            color: white;
+            text-align: center;
+            padding-top: 15px;
+            background-color: #202020;
+            position: absolute;
+            left: 0;
+            top: 100%;
+            transition: all 0.25s linear;
+        }
+        .sub-box:hover .black-div{
+            top: 82%;
+        }
+        .fifth{
+            height: 130vh;
+            width: 100%;
+            padding: 100px 70px;
+            background-position: center;
+            background-size: cover;
+            background-image: url(./ALMA-image/services2-1.jpg);
+        }
+        .box2{
+            height: 80%;
+            width: 100%;
+            margin-top: 10%;
+            display: flex;
+        }
+        .sub-box1{
+            height: 100%;
+            width: 50%;
+        }
+        .heading6{
+            color: pink;
+            letter-spacing: 5px;
+            margin-top: 40px;
+        }
+        .heading7{
+            color: white;
+            letter-spacing: 9px;
+            font-size: 50px;
+            line-height: 60px;
+            margin-top: 20px;
+        }
+        .text3 , .text4{
+            color: white;
+            line-height: 25px;
+            margin-top: 30px;
+            font-size: 17px;
+        }
+        .text4{
+            margin-top: 20px;
+        }
+        .button3{
+            height: max-content;
+            width: max-content;
+            padding: 10px 20px;
+            background-color: rgb(247, 141, 158);
+            color: white;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 35px;
+            transition: all 0.2s linear;
+        }
+        .button3:hover{
+            margin-top: 32px;
+        }
+        .circle{
+            height: 90%;
+            width: 75%;
+            margin: auto;
+            margin-top: 5%;
+            border: 1px solid #4d4d4d;
+            border-radius: 50%;
+            position: relative;
+        }
+
+
+
+
+
+        .small-circle{
+            height: 60px;
+            width: 60px;
+            border-radius: 50%;
+            background-color: white;
+            position: absolute;
+            left: 40%;
+            top: -7%;
+            cursor: pointer;
+        }
+        .active{
+            color: white;
+            background-color: rgb(238, 163, 176);
+            animation: zoom 1s linear infinite;
+        }
+        @keyframes zoom {
+            from{
+                transform: scale(0.9);
+            }
+            to{
+              transform: scale(1.1);
+            }
+            
+        }
+        .small-circle1{
+            position: absolute;
+            left: -3%;
+            top: 21%;
+        }
+        .small-circle2{
+            position: absolute;
+            left: -2%;
+            top: 65%;
+        }
+        .small-circle3{
+            position: absolute;
+            left: 90%;
+            top: 25%;
+        }
+        .small-circle4{
+            position: absolute;
+            left: 90%;
+            top: 65%;
+        }
+        .small-circle5{
+            position: absolute;
+            left: 44%;
+            top: 93%;
+        }
+        .icn3{
+            font-size: 30px;
+            margin-top: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .sub-circle{
+            height: 70%;
+            width: 70%;
+            margin: auto;
+            margin-top: 14%;
+            border-radius: 50%;
+            background-color: white;
+            position: relative;
+        }
+        .sub{
+            height: 100%;
+            width: 100%;
+            border-radius: 50%;
+            border: 1px solid #000;
+            position: absolute;
+            opacity: 0;
+        }
+        .show{
+            opacity: 1;
+        }
+        .icn7{
+            color: rgb(250, 149, 166);
+            font-size: 40px;
+            margin-top: 20%;
+            margin-left: 40%;
+            display: block;
+        }
+        .heading15{
+            text-align: center;
+            margin-top: 15px;
+            font-size: 30px;
+        }
+        .text11{
+            text-align: center;
+            margin-top: 15px;
+            line-height: 25px;
+        }
+        .sixth{
+            height: 100vh;
+            width: 100%;
+            padding: 90px;
+            background-position: center;
+            background-size: cover;
+            background-image: url(./ALMA-image/testimonials2.jpg);
+        }
+        .heading8{
+            letter-spacing: 11px;
+            text-align: center;
+            font-size: 50px;
+            line-height: 60px;
+            margin-top: 20px; 
+        }
+        .box8{
+            height: max-content;
+            width: 35%;
+            margin: auto;
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .img-div2{
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            position: relative;
+        }
+        .image4{
+            height: 100%;
+            width: 100%;
+            border-radius: 50%;   
+        }
+        .clr-div{
+            height: 100%;
+            width: 100%;
+            border-radius: 50%; 
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 3; 
+        }
+        .change{
+            background-color: rgba(0, 0, 0, 0.37);
+        }
+
+
+
+
+
+
+
+
+
+        .box9{
+            height: max-content;
+            width: 60%;
+            margin: auto;
+            margin-top: 40px;
+            position: relative;
+        }
+        .bx2{
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            opacity: 0;
+        }
+        .show1{
+            opacity: 1;
+        }
+        .text-box{
+            color: rgb(103,103,105);
+            font-size: 22px;
+            line-height: 30px;
+            text-align: center;
+        }
+        .txt2{
+            margin-top: 30px;
+            text-align: center;
+            color: rgb(74,74,74);
+        }
+        .txt3{
+            color: rgb(232,176,167);
+            text-align: center;
+            margin-top: 20px;
+        }
+        .seventh{
+            height: 90vh;
+            width: 100%;
+            background-color: white;
+            padding: 90px;
+        }
+        .box3{
+            height: 20%;
+            width: 100%;
+            display: flex;
+            padding: 20px 0;
+            justify-content:space-between ;
+        }
+        .sub-box2{
+            height: 100%;
+            width: 20%;   
+            cursor: pointer;
+        }
+        .pink{
+            color: rgb(243, 134, 152);
+        }
+        .heading9{
+            font-size: 25px;
+        }
+        .line2{
+            height: 1px;
+            width: 90%;
+            margin-top: 10px;
+            background-color: #000;
+        }
+        .heading10{
+            font-size: 20px;
+            letter-spacing: 3px;
+            margin-top: 20px;
+        }
+        .box4{
+            height: max-content;
+            width: 100%;
+            /* border: 1px solid #000; */
+            margin-top: 5%;
+            position: relative;
+        }
+        .box04{
+            height: max-content;
+            width: 100%;
+            position: absolute;
+            opacity: 0;
+            /* border: 1px solid #f00606; */
+            display: flex;
+            justify-content: space-between;
+        }
+        .show2{
+            opacity: 1;
+            animation: move01 0.6s linear;
+        }
+        @keyframes move01 {
+            0%{
+                margin-left: 0%
+            }
+            50%{
+                margin-left: 40%;
+            }
+            100%{
+                margin-left: 0%;
+            }
+        }
+        .sub-box3{
+            height: 100%;
+            width: 45%;
+            /* border: 1px solid #000; */
+        }
+        .heading11{
+            font-size: 45px;
+            letter-spacing: 8px;
+        }
+        .text5 , .text6{
+            margin-top: 30px;
+            font-size: 17px;
+            line-height: 25px;
+        }
+        .text6{
+            margin-top: 20px;
+        }
+        .button4{
+            margin-top: 30px;
+            padding: 10px 20px;
+            background-color: rgb(252, 159, 175);
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .bx3{
+            height: max-content;
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+            /* border: 1px solid #000; */
+        }
+        .icn9{
+            color: rgb(245, 133, 152);
+            font-size: 60px;
+        }
+        .text12{
+            display: inline-block;
+            vertical-align: top;
+            margin-top: 10px;
+            margin-left: 10px;
+            font-size: 20px;
+        }
+        .text13{
+            margin-left: 70px;
+            margin-top: -25px;
+            line-height: 24px;
+        }
+        .image5{
+            height: 80%;
+            width: 100%;
+            margin-top: 10%;
+        }
+        .box004{
+            height: 100%;
+            width: 100%;
+            display: block;
+            /* border: 1px solid #f00606; */
+        }
+        .text14{
+            margin-top: 10px;
+            line-height: 25px;
+            font-size: 16.5px;
+        }
+        .bx4{
+            height: 250px;
+            width: 100%;
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            /* border: 1px solid #000; */
+        }
+        .bx5{
+            height: 100%;
+            width: 33%;
+        }
+        .heading16{
+            color: rgb(247, 130, 150);
+            font-size: 35px;
+            letter-spacing: 5px;
+            margin-top: 10px;
+        }
+        .subbox3{
+            height: 300px;
+            width: 45%;
+            padding: 20px;
+            background-color: #000;
+        }
+        .heading17{
+            color: white;
+            font-size: 40px;
+            text-align: center;
+            margin-top: 70px;
+        }
+        .text15{
+            color: white;
+            font-size: 30px;
+            text-align: center;
+        }
+        .eighth{
+            height: max-content;
+            width: 100%;
+            background-image: url(./ALMA-image/blog22.jpg);
+            background-position: center;
+            background-size: cover;
+            padding: 110px;
+        }
+        .box5{
+            height: 70%;
+            width: 100%;
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .sub-box4{
+            height: 100%;
+            width: 30%;
+            background-color: white;
+            overflow: hidden;
+        }
+        .img-div1{
+            height: 45%;
+            width: 100%;
+        }
+        .image2{
+            height: 100%;
+            width: 100%;
+            cursor: pointer;
+            transition: all 0.2s linear;
+            overflow: hidden;
+        }
+        .image2:hover{
+            transform: scale(1.05);
+        }
+        .heading12{
+            font-size: 25px;
+            cursor: pointer;
+            transition: all 0.3s linear;
+            padding: 20px;
+        }
+        .heading12:hover{
+            color: rgb(232,170,160);
+        }
+        .text7{
+            line-height: 20px;
+            padding:  20px;
+        }
+        .clr1{
+            color: rgb(250, 153, 170);
+            cursor: pointer;
+            transition: all 0.2s linear;
+        }
+        .clr1:hover{
+            color: black;
+        }
+        .line3{
+            height: 1px;
+            width: 84%;
+            margin-top: 10px;
+            margin-left: 8%;
+            background-color: rgb(239,239,239);
+        }
+        .text8{
+            color: rgb(168,168,168);
+            font-size: 14px;
+            padding: 30px;
+            letter-spacing: 2px;
+        }
+        .icn4{
+            margin-left: 50px;
+        }
+        .nineth{
+            height: max-content;
+            width: 100%;
+            background-image: url(./ALMA-image/newhome4.jpg);
+            background-position: center;
+            background-size: cover;
+            padding: 120px;
+        }
+        .heading13{
+            color: white;
+            font-size: 25px;
+            letter-spacing: 5px;
+            text-align: center;    
+        }
+        .text9{
+            color: white;
+            text-align: center;
+            margin-top: 20px;
+            letter-spacing: 1px;
+        }
+        .inp-div{
+            height: max-content;
+            width: 64%; 
+            background-color: white;
+            margin-top: 40px;
+            margin-left: 18%;
+            border-radius: 25px;
+            display: flex;
+        }
+        .inp1{
+            height: 40px;
+            width: 75%;
+            font-size: 16px;
+            border-top-left-radius: 25px;
+            border-bottom-left-radius: 25px;
+            border: none;
+            padding-left: 20px;
+        }
+        .button5{
+            height: 40px;
+            width: 25%;
+            background-color: rgb(232,170,160);
+            color: white;
+            border: none;
+            font-size: 16px;
+            border-radius: 25px;
+            cursor: pointer;
+        }
+        .box6{
+            height: max-content;
+            width: 100%;
+            margin-top: 50px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .sub-box5{
+            height: 100%;
+            width: 22%;
+        }
+        .cir{
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            background-color: rgb(232,170,160);
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .icn5{
+            color: white;
+            font-size: 20px;
+        }
+        .heading14{
+            color: white;
+            text-align: center;
+            margin-top: 30px;
+            letter-spacing: 1px;
+        }
+        .text10{
+            color: rgb(204,202,202);
+            margin-top: 20px;
+            text-align: center;
+            line-height: 24px;
+        }
+        .box7{
+            height: max-content;
+            width: 20%;
+            margin: auto;
+            margin-top: 70px;   
+        }
+        .img{
+            height: max-content;
+            width: 60%;
+            margin: auto;
+        }
+        .icon-div2{
+            height: max-content;
+            width: 100%;
+            display: flex;
+            margin-top: 20px;
+            justify-content: space-between;
+        }
+        .icn6{
+            color: rgb(226, 226, 226);
+            font-size: 20px;
+            cursor: pointer;
+            transition: all 0.3s linear;
+        }
+        .icn6:hover{
+            color: pink;
+        }
+        
+        
+        
+    </style>
+</head>
+
+<body>
+    <section class="first">
+        <div class="after">
+            <div class="navbar">
+                <div class="logo-div">
+                    <img class="image1" src="./ALMA-image/logo-alma-light.png" alt="">
+                </div>
+                <ul class="list">
+                    <li class="lst clr">HOME
+                        <div class="line"></div>
+                    </li>
+                    <div class="dropdown1">
+                        <ul class="list1">
+                            <li class="lst1">HOME 2</li>
+                            <li class="lst1">HOME 3</li>
+                            <li class="lst1">HOME 4</li>
+                            <li class="lst1">HOME 5</li>
+                            <li class="lst1">HOME 6</li>
+                            <li class="lst1">HOME 7</li>
+                            <li class="lst1">HOME 8</li>
+                            <li class="lst1">HOME 9</li>
+                            <li class="lst1">HOME 10</li>
+                            <li class="lst1">HOME 11</li>
+                            <li class="lst1">HOME 12</li>
+                            <li class="lst1">HOME 13</li>
+
+                        </ul>
+                    </div>
+                    <li class="lst">PAGES
+                        <div class="line1"></div>
+                    </li>
+                    <div class="dropdown2">
+                        <ul class="list1">
+                            <li class="lst1">ABOUT PAGES</li>
+                            <li class="lst1">SERVICE PAGES</li>
+                            <li class="lst1">CONTACT PAGES</li>
+                            <li class="lst1">SPECAIL PAGES</li>
+                            <li class="lst1">RIGHT SIDEBAR</li>
+                            <li class="lst1">LEFT SIDEBAR</li>
+                            <li class="lst1">PROJECT PLANNER</li>
+                            <li class="lst1">FAQ PAGE</li>
+                            <li class="lst1">CLIENTS</li>
+                        </ul>
+                    </div>
+                    <li class="lst">PORTFOLIOS
+                        <div class="line1"></div>
+                    </li>
+                    <div class="dropdown3">
+                        <div class="bx">
+                            <ul class="list1">
+                                <li class="lst1">MASONRY</li>
+                                <li class="lst1">SMALL GAP BOX</li>
+                                <li class="lst1">SMALL GAP WIDE</li>
+                                <li class="lst1">MEDIUM GAP BOX</li>
+                                <li class="lst1">MEDIUM GAP WIDE</li>
+                                <li class="lst1">BIG GAP WIDE</li>
+                            </ul>
+                        </div>
+                        <div class="bx">
+                            <ul class="list1">
+                                <li class="lst1">GRID AJAX</li>
+                                <li class="lst1">GRID AJAX VIDEO</li>
+                                <li class="lst1">GRID AJAX 4 COL</li>
+                                <li class="lst1">GRID AJAX 3 COL</li>
+                                <li class="lst1">GRID AJAX 2 COL</li>
+                                <li class="lst1">GRID AJAX WIDE</li>
+                            </ul>
+                        </div>
+                        <div class="bx">
+                            <ul class="list1">
+                                <li class="lst1">MIXED PROJECTS</li>
+                                <li class="lst1">MIXED 3 TEXT</li>
+                                <li class="lst1">MIXED 3 COL</li>
+                                <li class="lst1">MIXED 3 COL WIDE</li>
+                                <li class="lst1">MIXED 4 COL</li>
+                                <li class="lst1">MIXED 2 COL</li>
+                            </ul>
+                        </div>
+                        <div class="bx">
+                            <ul class="list1">
+                                <li class="lst1">WIDE STYLE</li>
+                                <li class="lst1">WIDE SMALL PROJECTS</li>
+                                <li class="lst1">WIDE MEDIUM PROJECTS</li>
+                                <li class="lst1">WIDE MEDIUM WITH TEXT</li>
+                                <li class="lst1">WIDE BIG PROJECTS</li>
+                                <li class="lst1">WIDE SMALL PROJ VIDEO</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    <li class="lst">ELEMENTS
+                        <div class="line1"></div>
+                    </li>
+                    <div class="dropdown4">
+                        <div class="bx">
+                            <ul class="list1">
+                                <li class="lst1">ELEMENTS COL 1</li>
+                                <li class="lst1">ACCORDION & TABS</li>
+                                <li class="lst1">ADVANCED CAROUSEL</li>
+                                <li class="lst1">ANIMATED TEXT</li>
+                                <li class="lst1">CONTACT FORMS</li>
+                                <li class="lst1">CONTENT & FLIP BOX</li>
+                                <li class="lst1">CREATIVE LINK</li>
+                                <li class="lst1">GALLERY & IMAGE OVERLAY</li>
+                            </ul>
+                        </div>
+                        <div class="bx">
+                            <ul class="list1">
+                                <li class="lst1">ELEMENTS COL2</li>
+                                <li class="lst1">GOOGLE FONTS</li>
+                                <li class="lst1">GOOGLE MAPS</li>
+                                <li class="lst1">ICONS & INFO BOX</li>
+                                <li class="lst1">IHOVER</li>
+                                <li class="lst1">INFO BANNERS</li>
+                                <li class="lst1">INFO CIRCLE</li>
+                                <li class="lst1">INFO TABLES</li>
+                            </ul>
+                        </div>
+                        <div class="bx">
+                            <ul class="list1">
+                                <li class="lst1">ELEMENTS COL 3</li>
+                                <li class="lst1">LATEST POSTS</li>
+                                <li class="lst1">LATEST PROJECTS</li>
+                                <li class="lst1">MODAL BOX</li>
+                                <li class="lst1">MULIMEDIA PLAYERS</li>
+                                <li class="lst1">PARTNERS</li>
+                                <li class="lst1">PIE CHART</li>
+                                <li class="lst1">PRICE BOX</li>
+                            </ul>
+                        </div>
+                        <div class="bx">
+                            <ul class="list1">
+                                <li class="lst1">ELEMENTS COL 4</li>
+                                <li class="lst1">PROGRESS BAR</li>
+                                <li class="lst1">ROUND CHART</li>
+                                <li class="lst1">ROWS COLUMNS</li>
+                                <li class="lst1">SECTION BACKGROUNDS</li>
+                                <li class="lst1">STYLED TABS</li>
+                                <li class="lst1">TABLES</li>
+                                <li class="lst1">TIMELINE</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <li class="lst">BLOGS
+                        <div class="line1"></div>
+                    </li>
+                    <div class="dropdown5">
+                        <ul class="list1">
+                            <li class="lst1">BLOG WIDE</li>
+                            <li class="lst1">BLOG RIGHT SIDEBAR</li>
+                            <li class="lst1">BLOG LEFT SIDEBAR</li>
+                            <li class="lst1">BLOG MASONRY WIDE</li>
+                            <li class="lst1">BLOG MANSONRY SIDEBAR</li>
+                            <li class="lst1">BLOG MASONRY</li>
+                            <li class="lst1">BLOG GRID WIDE</li>
+                            <li class="lst1">BLOG GRID</li>
+                        </ul>
+                    </div>
+                    <li class="lst">SHOP
+                        <div class="line1"></div>
+                    </li>
+
+                </ul>
+                <div class="icon-div">
+                    <i onclick="dw()" class="bi bi-search icn01"></i>
+                    <i class="bi bi-basket3 icn02"></i>
+                    <div class="dropdown6">
+                        <div class="lst2">NO PROJUCT IN THE CART.</div>
+                    </div>
+                    <i onclick="mv()" class="bi bi-list icn03"></i>
+                </div>
+            </div>
+            <div class="search-bar">
+                <i onclick="up()" class="bi bi-x-lg icn001"></i>
+                <input class="inp" type="text" placeholder="Search....">
+            </div>
+
+
+            <div class="side-bar">
+                <i onclick="cl()" class="bi bi-x-lg icn1"></i>
+                <img class="image3" src="./ALMA-image/intro-logo-3-300x207.png" alt="">
+                <p class="txt">Beautiful theme with minimalist Design. It’s time to amaze your clients with a brand new website. Get Alma today!</p>
+                <p class="txt1">FOLLOW US</p>
+                <div class="icon-div1">
+                    <i class="bi bi-facebook icn2"></i>
+                    <i class="bi bi-twitter icn2"></i>
+                    <i class="bi bi-instagram icn2"></i>
+                    <i class="bi bi-pinterest icn2"></i>
+                    <i class="bi bi-twitch icn2"></i>
+                    <i class="bi bi-tiktok icn2"></i>
+                </div>
+            </div>
+            
+            <h4 class="heading1">WE'RE DIGITAL PIONEERS</h4>
+            <div class="text-div">
+                <!-- IN WEBDESIGN -->
+                <h1 class="headings up1">I</h1>
+                <h1 class="headings dwn1">N &nbsp;</h1>
+                <h1 class="headings up1">W</h1>
+                <h1 class="headings dwn1">E</h1>
+                <h1 class="headings up1">B</h1>
+                <h1 class="headings dwn1">D</h1>
+                <h1 class="headings up1">E</h1>
+                <h1 class="headings dwn1">S</h1>
+                <h1 class="headings up1">I</h1>
+                <h1 class="headings dwn1">G</h1>
+                <h1 class="headings up1">N</h1>
+
+                <br>
+                <!-- //////////////////// -->
+                <!-- IN PHOTOGRAPHY -->
+                <h1 class="headings01 up2">I</h1>
+                <h1 class="headings01 dwn2">N &nbsp;</h1>
+                <h1 class="headings01 up2">P</h1>
+                <h1 class="headings01 dwn2">H</h1>
+                <h1 class="headings01 up2">O</h1>
+                <h1 class="headings01 dwn2">T</h1>
+                <h1 class="headings01 up2">0</h1>
+                <h1 class="headings01 dwn2">G</h1>
+                <h1 class="headings01 up2">R</h1>
+                <h1 class="headings01 dwn2">A</h1>
+                <h1 class="headings01 up2">P</h1>
+                <h1 class="headings01 dwn2">H</h1>
+                <h1 class="headings01 up2">Y</h1>
+
+                <br>
+
+
+                <h1 class="headings01 up3">I</h1>
+                <h1 class="headings01 dwn3">N &nbsp;</h1>
+                <h1 class="headings01 up3">V</h1>
+                <h1 class="headings01 dwn3">I</h1>
+                <h1 class="headings01 up3">D</h1>
+                <h1 class="headings01 dwn3">E</h1>
+                <h1 class="headings01 up3">0</h1>
+                <h1 class="headings01 dwn3">G</h1>
+                <h1 class="headings01 up3">R</h1>
+                <h1 class="headings01 dwn3">A</h1>
+                <h1 class="headings01 up3">P</h1>
+                <h1 class="headings01 dwn3">H</h1>
+                <h1 class="headings01 up3">Y</h1>
+
+            </div>
+            <p class="text1">SCROLL TO EXPLORE</p>
+            <div class="arrow-div">
+                <i class="bi bi-arrow-down icn8"></i>
+            </div>
+            <div class="btn-div">
+                <button class="button1">MORE ABOUT US</button>
+                <button class="button2">PURCHASE ALMA</button>
+
+            </div>
+        </div>
+    </section>
+    <section class="second">
+        <div class="box">
+            <h1 class="heading2">01</h1>
+            <p class="heading3">INNOVATION</p>
+            <p class="text2">Interactively brand robust collaboration and idea-sharing rather than dynamic e-tailers</p>
+        </div>
+        <div class="box">
+            <h1 class="heading2">02</h1>
+            <p class="heading3">CREATIVITY</p>
+            <p class="text2">Interactively brand robust collaboration and idea-sharing rather than dynamic e-tailers</p>
+        </div>
+        <div class="box">
+            <h1 class="heading2">03</h1>
+            <p class="heading3">QUALITY</p>
+            <p class="text2">Interactively brand robust collaboration and idea-sharing rather than dynamic e-tailers</p>
+        </div>
+
+    </section>
+    <section class="third">
+        <h2 class="heading4">WE DO AMAZING STUFF</h2>
+        <div class="text-div1">
+            <h1 class="heading5 upmove1">GRAPHIC DESIGN</h1>
+            <h1 class="heading5 upmove2">WEB DESIGN</h1>
+            <h1 class="heading5 upmove3">ILLUSTRATIONS</h1>
+        </div>
+    </section>
+    <section class="fourth">
+        <div class="box1">
+            <div class="sub-box">
+                <img class="image01" src="./ALMA-image/project4.jpg" alt="">
+                <div class="black-div"> ALMA THEME</div>
+            </div>
+            <div class="sub-box">
+                <img class="image01" src="./ALMA-image/projectbig10.jpg" alt="">
+                <div class="black-div">MODERN IWATCH</div>
+            </div>
+            <div class="sub-box">
+                <img class="image01" src="./ALMA-image/project5.jpg" alt="">
+                <div class="black-div">DO NOT DISTURB</div>
+            </div>
+            <div class="sub-box">
+                <img class="image01" src="./ALMA-image/projectbig6.jpg" alt="">
+                <div class="black-div">APPLE IWATCH</div>
+            </div>
+            <div class="sub-box">
+                <img class="image01" src="./ALMA-image/projectbig7.jpg" alt="">
+                <div class="black-div">NEW IMAC</div>
+            </div>
+            <div class="sub-box">
+                <img class="image01" src="./ALMA-image/projectbig11.jpg" alt="">
+                <div class="black-div">ALMA BOOKS</div>
+            </div>
+
+        </div>
+    </section>
+    <section class="fifth">
+        <div class="box2">
+            <div class="sub-box1">
+                <h2 class="heading6">WE DO CREATIVE STUFF</h2>
+                <h1 class="heading7">OUR SERVICES</h1>
+                <p class="text3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <p class="text4">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <button class="button3">MORE ABOUT US</button>
+            </div>
+            <div class="sub-box1">
+                <div class="circle">
+                    <div class="small-circle active">
+                        <i class="bi bi-heart icn3"></i>
+                    </div>
+                    <div class="small-circle small-circle1 ">
+                        <i class="bi bi-bezier icn3"></i>
+                    </div>
+                    <div class="small-circle small-circle2">
+                        <i class="bi bi-person-lines-fill icn3"></i>
+                    </div>
+                    <div class=" small-circle small-circle3">
+                        <i class="bi bi-laptop icn3"></i>
+                    </div>
+                    <div class="small-circle small-circle4">
+                        <i class="bi bi-file-earmark-code-fill icn3"></i>
+                    </div>
+                    <div class="small-circle small-circle5">
+                        <i class="bi bi-boombox icn3"></i>
+                    </div>
+
+                    <div class="sub-circle">
+                        <div class="sub show">
+                            <i class="bi bi-heart icn7"></i>
+                            <h4 class="heading15">GRAPHIC DESIGN</h4>
+                            <p class="text11">Lorem ipsum is placeholder text commonly used in for previewing layouts and visual mockups.</p>
+                        </div>
+                        <div class="sub">
+                            <i class="bi bi-bezier icn7"></i>
+                            <h4 class="heading15">ILLUSTRATION</h4>
+                            <p class="text11">Lorem ipsum is placeholder text commonly used in for previewing layouts and visual mockups.</p>
+                        </div>
+                        <div class="sub">
+                            <i class="bi bi-person-lines-fill icn7"></i>
+                            <h4 class="heading15">CONSULTING</h4>
+                            <p class="text11">Lorem ipsum is placeholder text commonly used in for previewing layouts and visual mockups.</p>
+                        </div>
+                        <div class="sub">
+                            <i class="bi bi-laptop icn7"></i>
+                            <h4 class="heading15">WEB DESIGN</h4>
+                            <p class="text11">Lorem ipsum is placeholder text commonly used in for previewing layouts and visual mockups.</p>
+                        </div>
+                        <div class="sub">
+                            <i class="bi bi-file-earmark-code-fill icn7"></i>
+                            <h4 class="heading15">WEB DEVELOPMENT</h4>
+                            <p class="text11">Lorem ipsum is placeholder text commonly used in for previewing layouts and visual mockups.</p>
+                        </div>
+                        <div class="sub">
+                            <i class="bi bi-boombox icn7"></i>
+                            <h4 class="heading15">3D MODELING</h4>
+                            <p class="text11">Lorem ipsum is placeholder text commonly used in for previewing layouts and visual mockups.</p>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <section class="sixth">
+        <h3 class="heading4">WE LOVE THEM.THEY LOVE US</h3>
+        <h2 class="heading8">OUR CLIENTS</h2> 
+        <div class="box8">
+            <div class="img-div2">
+                <img class="image4" src="./ALMA-image/testimonial-6.jpg" alt="">
+                <div  class="clr-div change"></div>
+            </div>
+            <div class="img-div2">
+                <img  class="image4" src="./ALMA-image/testimonial-3.jpg" alt="">
+                <div class="clr-div"></div>
+            </div>
+            <div class="img-div2">
+                <img class="image4" src="./ALMA-image/testimonial-1.jpg" alt="">
+                <div class="clr-div"></div>
+            </div>
+            <div class="img-div2">
+                <img class="image4" src="./ALMA-image/testimonial-7.jpg" alt="">
+                <div class="clr-div"></div>
+            </div>
+            <div class="img-div2">
+                <img class="image4" src="./ALMA-image/testimonial-8.jpg" alt="">
+                <div class="clr-div"></div>
+            </div>
+            <div class="img-div2">
+                <img class="image4" src="./ALMA-image/testimonial-5.jpg" alt="">   
+                <div class="clr-div"></div>
+            </div>
+        </div>
+        <div class="box9">
+            <div class="bx2 show1">
+                <p class="text-box">"Rapidiously integrate multimedia based resources whereas low-risk yiel innovate market positioning products without B2B products resources before"</p>
+                <p class="txt2">JACK SHAPEARD</p>
+                <p class="txt3">COMPANY</p>
+            </div>
+            <div class="bx2">
+                <p class="text-box">"Compellingly fashion low-risk high-yield "outside the box" thinking after synergistic users. Quickly empower web-enabled manufactured products alignments"</p>
+                <p class="txt2">MARIA MADEIRA</p>
+                <p class="txt3">AGENCY</p>
+            </div>
+            <div class="bx2">
+                <p class="text-box">"Rapidiously integrate multimedia based resources whereas low-risk yiel innovate market positioning products without B2B products resources before"</p>
+                <p class="txt2">LUCAS NOEL</p>
+                <p class="txt3">NAAPO AGENCY</p>
+            </div>
+            <div class="bx2">
+                <p class="text-box">"Energistically engage diverse vortals and prospective methods of empowerment pontificate diverse"</p>
+                <p class="txt2">JONAS BENFAS</p>
+                <p class="txt3">NAAPO</p>
+            </div>
+            <div class="bx2">
+                <p class="text-box">"Enthusiastically syndicate inexpensive services and bandwidth phosfluorescently develop cooperative content vis-a-vis best-of-breed alignments."</p>
+                <p class="txt2">LUCAS DOE</p>
+                <p class="txt3">MARKETPLACE</p>
+            </div>
+            <div class="bx2">
+                <p class="text-box">"Rapidiously integrate multimedia based resources whereas low-risk yiel innovate market positioning products without B2B products resources before"</p>
+                <p class="txt2">CARINA LUCAS</p>
+                <p class="txt3">NAAPO AGENCY</p>
+            </div>
+
+            
+        </div>
+    </section>
+    <section class="seventh">
+        <div class="box3">
+            <div class="sub-box2 pink">
+                <h5 class="heading9">01</h5>
+                <div class="line2"></div>
+                <p class="heading10">WHO WE ARE</p>
+            </div>
+            <div class="sub-box2">
+                <h5 class="heading9">02</h5>
+                <div class="line2"></div>
+                <p class="heading10">WHAT WE DO</p>
+            </div>
+            <div class="sub-box2">
+                <h5 class="heading9">03</h5>
+                <div class="line2"></div>
+                <p class="heading10">OFFICE</p>
+            </div>
+            <div class="sub-box2">
+                <h5 class="heading9">04</h5>
+                <div class="line2"></div>
+                <p class="heading10">VIDEO</p>
+            </div>
+
+        </div>
+        <div class="box4">
+            <div class="box04 show2">
+                <div class="sub-box3">
+                    <h1 class="heading11">WE'RE ALMA</h1>
+                    <p class="text5">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <p class="text6">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <button class="button3">MORE ABOUT US</button>
+                </div>
+                <div class="sub-box3">
+                    <img class="image1" src="./ALMA-image/home-tabs1-1.jpg" alt="">
+                </div>
+            </div>
+            <div class="box04">
+                <div class="sub-box3">
+                <h1 class="heading11">DESIGN & CODE</h1>
+                <div class="bx3">
+                <i class="bi bi-laptop icn9"></i>
+                <h4 class="text12">GRAPHIC & WEB DESIGN</h4>
+                <p class="text13">Duis aute irure dolor in reprehenderit in voluptate velit
+                    esse cillum dolore</p>
+                </div>
+                <div class="bx3">
+                    <i class="bi bi-shield-check icn9"></i>
+                    <h4 class="text12">WEB DEVELOPMENT</h4>
+                    <p class="text13">Duis aute irure dolor in reprehenderit in voluptate velit
+                        esse cillum dolore</p>
+                    </div>
+                </div>
+                <div class="sub-box3">
+                    <img class="image5" src="./ALMA-image/home-tabs1-1.jpg" alt="">
+                </div>
+            </div>
+            <div class="box04 box004">
+                <h1 class="heading11">THE OFFICE</h1>
+                <P class="text14">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</P>
+                <p class="text14">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <div class="bx4">
+                    <div class="bx5">
+                        <img class="image1" src="./ALMA-image/new-alma2-1024x768.jpg" alt="">
+                    </div>
+                    <div class="bx5">
+                        <img class="image1" src="./ALMA-image/newhome-1024x683.jpg" alt="">
+                    </div>
+                    <div class="bx5">
+                        <img class="image1" src="./ALMA-image/about4-2-2-1024x699.jpg" alt="">
+                    </div>
+
+                </div>
+            </div>
+            <div class="box04">
+                <div class="sub-box3">
+                    <h2 class="heading16">VIDEO / MOTION</h2>
+                    <p class="text14">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    <p class="text14">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+                <div class="subbox3">
+                    <h1 class="heading17">SORRY</h1>
+                    <p class="text15">Because of its privacy settings, this video cannot be played here.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="eighth">
+        <h3 class="heading4">LATEST NEWS AND TIPS</h3>
+        <h2 class="heading8">FROM THE BLOG</h2> 
+        <div class="box5">
+            <div class="sub-box4">
+                <div class="img-div1">
+                    <img class="image2" src="./ALMA-image/home5-2.jpg" alt="">
+                </div>
+                <h4 class="heading12">Creative Office</h4>
+                <p class="text7">Leverage existing customized outsourcing after interdependent intellectual conceptualize cross unitworldwide skill for just... <span class="clr1">Read More</span></p>
+                <div class="line3"></div>
+                <p class="text8">Febuary 28. 2021<i class="bi bi-chat icn4"></i> 0</p>  
+            </div>
+            <div class="sub-box4">
+                <div class="img-div1">
+                    <img class="image2" src="./ALMA-image/pool2.jpg" alt="">
+                </div>
+                <h4 class="heading12">Relaxing at the Pool</h4>
+                <p class="text7">Completely communicate cross-media growth strategies with web services utilize client-based users without deploy... <span class="clr1">Read More</span></p>
+                <div class="line3"></div>
+                <p class="text8">Febuary 28. 2021<i class="bi bi-chat icn4"></i> 3</p>
+            </div>
+            <div class="sub-box4">
+                <div class="img-div1">
+                    <img class="image2" src="./ALMA-image/animal-5.jpg" alt="">
+                </div>
+                <h4 class="heading12">Happy Birthday Thomasi</h4>
+                <p class="text7">Enthusiastically leverage existing customized outsourcing after interdependent intellectual capital procedures... <span class="clr1">Read More</span></p>
+                <div class="line3"></div>
+                <p class="text8">Febuary 28. 2021<i class="bi bi-chat icn4"></i> 0</p>
+            </div>
+        </div>
+    </section>
+    <section class="nineth">
+        <h4 class="heading13">SUBSCRIBE OUR NEWSLETTER</h4>
+        <p class="text9">Receive news, cool free stuff updates and new released products (no spam!)</p>
+        <div class="inp-div">
+            <input class="inp1" type="text" placeholder="Enter your email here">
+            <button class="button5">Subscribe</button>
+        </div>
+        <div class="box6">
+            <div class="sub-box5">
+                <div class="cir"><i class="bi bi-geo-alt icn5"></i></div>
+                <h4 class="heading14">ADDRESS</h4>
+                <p class="text10">PO Box 16122 Collins Street West
+                    Victoria 8007 Australia
+                    </p>
+            </div>
+            <div class="sub-box5">
+                <div class="cir"><i class="bi bi-envelope icn5"></i></div>
+                <h4 class="heading14">EMAIL</h4>
+                <p class="text10">marketing@example.com
+                    geral@example.com
+                    </p>
+
+            </div>
+            <div class="sub-box5">
+                <div class="cir"><i class="bi bi-telephone icn5"></i></div>
+                <h4 class="heading14">PHONE</h4>
+                <p class="text10">(+222) 848 333 941 (+12) 484 413 555
+                </p>
+            </div>
+
+        </div>
+        <div class="box7">
+            <div class="img">
+                <img class="image1" src="./ALMA-image/logo-alma-light@2x.png" alt="">
+            </div>
+            <div class="icon-div2">
+                <i class="bi bi-facebook icn6"></i>
+                    <i class="bi bi-twitter icn6"></i>
+                    <i class="bi bi-instagram icn6"></i>
+                    <i class="bi bi-pinterest icn6"></i>
+                    <i class="bi bi-twitch icn6"></i>
+                    <i class="bi bi-tiktok icn6"></i>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+    <script>
+        let icon03 =document.getElementsByClassName("icn03")
+        console.log(icon03);
+        let sidebar = document.getElementsByClassName("side-bar")[0]
+        console.log(sidebar);
+        function mv(){
+            sidebar.classList.add("left")
+            console.log(sidebar);
+        }
+        function cl(){
+            sidebar.classList.remove("left")
+            console.log(icon03);
+        }
+
+
+        let icon01 =document.getElementsByClassName("icn01")
+        console.log(icon03);
+        let searchbar = document.getElementsByClassName("search-bar")[0]
+        console.log(searchbar);
+        function dw(){
+            searchbar.classList.add("down")
+            console.log(searchbar);
+        }
+        function up(){
+            searchbar.classList.remove("down")
+            console.log(searchbar);
+        }
+
+
+let circles = document.querySelectorAll(".small-circle")
+
+console.log(circles);
+
+let heading = document.querySelectorAll(".sub")
+
+console.log(heading);
+
+for( let m = 0; m < circles.length; m++ ){
+
+    circles[m].addEventListener("mouseenter", function() {
+
+        for(  let n = 0; n < circles.length; n++ ){
+
+            circles[n].classList.remove("active")
+            heading[n].classList.remove("show")
+        }
+        circles[m].classList.add("active")
+        heading[m].classList.add("show")
+
+    } )
+}
+let chnge = document.querySelectorAll(".clr-div")
+console.log(chnge);
+        let bx1 = document.querySelectorAll(".bx2")
+        console.log(bx1);
+        for(let i = 0 ; i < chnge.length ; i++){
+        chnge[i].addEventListener("mouseenter" , function () {
+            for (let r = 0 ; r < chnge.length ; r++){
+            chnge[r].classList.remove("change")
+            bx1[r].classList.remove("show1")
+            }
+            chnge[i].classList.add("change")
+            bx1[i].classList.add("show1")
+            
+        })
+    }
+    // var circles = document.getElementsByClassName("small-circle")
+    // console.log(circles);
+    //         function active(event){
+    //             for(var i = 0 ; i < circles.length ; i++){
+    //             circles[i].classList.remove("active")
+    //         }
+    //            console.log(event.target);
+    //            event.target.classList.add("active")
+    //     }
+    
+    //     var color = document.getElementsByClassName("clr-div")
+    //     console.log(color);
+    
+    //     function change(event){
+    //         for(var i = 0 ; i < color.length ; i++){
+    //             color[i].classList.remove("change")
+    //     }
+    //     console.log(event.target);
+    //     event.target.classList.add("change")
+    // }
+    
+    
+    //     var colorchange = document.getElementsByClassName("sub-box2")
+    //     // console.log(color);
+    
+    //     function chnge(event){
+        //         for(var i = 0 ; i < colorchange.length ; i++){
+            //             colorchange[i].classList.remove("pink")
+            //     }
+            //     console.log(event.target);
+            //     event.target.classList.add("pink")
+            // }
+            
+            
+let colorchange = document.querySelectorAll(".sub-box2")
+        console.log(colorchange);
+        let bx4 = document.querySelectorAll(".box04")
+        console.log(bx4);
+       for(let a = 0 ; a < colorchange.length ; a++){
+        colorchange[a].addEventListener("click" , function () {
+            for (let r = 0 ; r < colorchange.length ; r++){
+            colorchange[r].classList.remove("pink")
+            bx4[r].classList.remove("show2")
+            }
+            colorchange[a].classList.add("pink")
+            bx4[a].classList.add("show2")
+            
+        })
+       }
+
+    </script>
+</body>
+
+</html>
